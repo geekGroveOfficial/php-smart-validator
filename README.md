@@ -13,7 +13,7 @@
 You can install the package via Composer. Run the following command in your terminal:
 
 ```bash
-composer require soheil/php-smart-validator
+composer require GeekGroveOfficial/php-smart-validator
 ```
 
 ## Basic Usage
@@ -23,7 +23,7 @@ composer require soheil/php-smart-validator
 First, create a validation instance by passing the data and rules:
 
 ```php
-use Soheil\PhpSmartValidator\Validator\Validator;
+use GeekGroveOfficial\PhpSmartValidator\Validator\Validator;
 
 $data = [
     'email' => 'example@example.com',
@@ -51,7 +51,7 @@ To add custom validation rules, implement the `ValidationRuleInterface`:
 ```php
 namespace App\Rules;
 
-use Soheil\PhpSmartValidator\Rules\ValidationRuleInterface;
+use GeekGroveOfficial\PhpSmartValidator\Rules\ValidationRuleInterface;
 
 class CustomRule implements ValidationRuleInterface
 {
@@ -71,8 +71,8 @@ class CustomRule implements ValidationRuleInterface
 Register your custom rule with the `RuleFactory`:
 
 ```php
-use Soheil\PhpSmartValidator\Rules\RuleFactory;
-use Soheil\PhpSmartValidator\Messages\FileMessageLoader;
+use GeekGroveOfficial\PhpSmartValidator\Rules\RuleFactory;
+use GeekGroveOfficial\PhpSmartValidator\Messages\FileMessageLoader;
 
 // Initialize the message loader
 $messageLoader = new FileMessageLoader(__DIR__ . '/resources/lang/en/messages.php');

@@ -2,9 +2,16 @@
 
 namespace GeekGroveOfficial\PhpSmartValidator\Rules;
 
-
-class RequiredRule implements ValidationRuleInterface
+class MinRule implements ValidationRuleInterface
 {
+
+    /**
+     * @param int $min
+     */
+    public function __construct(protected int $min)
+    {}
+
+
     /**
      * @param string $field
      * @param mixed $value
@@ -13,7 +20,11 @@ class RequiredRule implements ValidationRuleInterface
      */
     public function validate(string $field, mixed $value, mixed $parameter = null): bool
     {
-        return !empty($value);
+        if (!is_string($value)) {
+            return false;
+        }
+
+        return strlen($value) >= $this->min;
     }
 
     /**
@@ -23,6 +34,6 @@ class RequiredRule implements ValidationRuleInterface
      */
     public function getErrorMessage(string $field, mixed $parameter = null): string
     {
-        return "{$field} is required.";
+        return str_replace(':min', $parameter, "{$field} must be at least :min characters long.");
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Soheil\PhpSmartValidator\Validator;
+namespace GeekGroveOfficial\PhpSmartValidator\Validator;
 
-use Soheil\PhpSmartValidator\Rules\RuleFactory;
+use GeekGroveOfficial\PhpSmartValidator\Rules\RuleFactory;
 
 class Validator
 {

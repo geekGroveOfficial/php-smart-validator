@@ -3,7 +3,7 @@
 namespace Tests\Rules;
 
 use PHPUnit\Framework\TestCase;
-use Soheil\PhpSmartValidator\Rules\RequiredRule;
+use GeekGroveOfficial\PhpSmartValidator\Rules\RequiredRule;
 
 class RequiredRuleTest extends TestCase
 {

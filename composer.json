@@ -1,5 +1,5 @@
 {
-    "name": "soheil/php-smart-validator",
+    "name": "geekgroveofficial/php-smart-validator",
     "description": "A smart validation package for PHP",
     "type": "library",
     "require": {
@@ -7,12 +7,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Soheil\\PhpSmartValidator\\": "src/"
+            "GeekGroveOfficial\\PhpSmartValidator\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Soheil\\PhpSmartValidator\\Tests\\": "tests/"
+            "GeekGroveOfficial\\PhpSmartValidator\\Tests\\": "tests/"
         }
     },
     "require-dev": {
