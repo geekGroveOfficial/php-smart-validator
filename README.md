@@ -31,8 +31,8 @@ $data = [
 ];
 
 $rules = [
-    'email' => 'required|email',
-    'password' => 'required|min:6'
+    'email' => ['required','email'],
+    'password' => ['required','min:6']
 ];
 
 $validator = new Validator($data, $rules);
