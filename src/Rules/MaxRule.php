@@ -34,6 +34,6 @@ class MaxRule implements ValidationRuleInterface
      */
     public function getErrorMessage(string $field, mixed $parameter = null): string
     {
-        return str_replace(':min', $parameter, "{$field} must not be more than :max characters long.");
+        return str_replace(':min', $this->max, "{$field} must not be more than :max characters long.");
     }
 }
