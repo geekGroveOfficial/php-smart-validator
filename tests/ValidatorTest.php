@@ -2,8 +2,8 @@
 
 namespace Tests;
 
-use PHPUnit\Framework\TestCase;
 use GeekGroveOfficial\PhpSmartValidator\Validator\Validator;
+use PHPUnit\Framework\TestCase;
 
 class ValidatorTest extends TestCase
 {
@@ -19,7 +19,7 @@ class ValidatorTest extends TestCase
         ];
 
         $rules = [
-            'name' => ['required']
+            'name' => ['required'],
         ];
 
         $validator = $this->getValidator($data, $rules);
@@ -35,7 +35,7 @@ class ValidatorTest extends TestCase
         ];
 
         $rules = [
-            'name' => ['min:3']
+            'name' => ['min:3'],
         ];
 
         $validator = $this->getValidator($data, $rules);
@@ -43,7 +43,6 @@ class ValidatorTest extends TestCase
         $this->assertTrue($validator->validate());
         $this->assertEmpty($validator->errors());
     }
-
 
     public function testValidationPassesMaxWithValidData()
     {
@@ -52,7 +51,7 @@ class ValidatorTest extends TestCase
         ];
 
         $rules = [
-            'name' => ['max:3']
+            'name' => ['max:3'],
         ];
 
         $validator = $this->getValidator($data, $rules);
@@ -60,16 +59,15 @@ class ValidatorTest extends TestCase
         $this->assertTrue($validator->validate());
         $this->assertEmpty($validator->errors());
     }
-
 
     public function testValidationPassesStringWithValidData()
     {
         $data = [
-            'name' => "Doe",
+            'name' => 'Doe',
         ];
 
         $rules = [
-            'name' => ['string']
+            'name' => ['string'],
         ];
 
         $validator = $this->getValidator($data, $rules);
@@ -77,7 +75,6 @@ class ValidatorTest extends TestCase
         $this->assertTrue($validator->validate());
         $this->assertEmpty($validator->errors());
     }
-
 
     public function testValidationPassesIntegerWithValidData()
     {
@@ -86,7 +83,7 @@ class ValidatorTest extends TestCase
         ];
 
         $rules = [
-            'number' => ['integer'] // you can use int or integer
+            'number' => ['integer'], // you can use int or integer
         ];
 
         $validator = $this->getValidator($data, $rules);

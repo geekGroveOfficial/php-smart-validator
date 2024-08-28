@@ -7,7 +7,9 @@ use GeekGroveOfficial\PhpSmartValidator\Rules\RuleFactory;
 class Validator
 {
     protected array $errors = [];
+
     protected array $data;
+
     protected array $rules;
 
     public function __construct(array $data, array $rules)
@@ -23,14 +25,14 @@ class Validator
                 $ruleObject = RuleFactory::create($rule);
                 $value = $this->data[$field] ?? null;
 
-                if (!$ruleObject->validate($field, $value)) {
+                if (! $ruleObject->validate($field, $value)) {
                     $this->addError($field, $ruleObject->getErrorMessage($field));
                 }
             }
         }
 
         return empty($this->errors);
-    }    
+    }
 
     protected function addError(string $field, string $message): void
     {
