@@ -24,6 +24,8 @@ class RuleFactory
             'string' => new StringRule(),
             'integer' => new IntegerRule(),
             'int' => new IntegerRule(),
+            'bool' => new BooleanRule(),
+            'boolean' => new BooleanRule(), 
             default => throw new \Exception("Validation rule '{$rule}' does not exist."),
         };
     }
