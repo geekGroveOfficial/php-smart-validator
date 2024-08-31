@@ -24,6 +24,17 @@ class RuleFactory
             'int' => new IntegerRule,
             'bool' => new BooleanRule,
             'boolean' => new BooleanRule,
+            'email' => new EmailRule,
+            'date' => new DateRule(format: $parameter),
+            'array' => new ArrayRule,
+            'in' => new InRule(values: explode(',', $parameter)),
+            'url' => new UrlRule,
+            'ip' => new IpRule,
+            'json' =>  new JsonRule,
+            'regex' => new RegexRule(pattern: $parameter),
+            'uuid' => new UuidRule,
+            'image' => new ImageRule(format: $parameter),
+            'files' => new FileRule(format: $parameter),
             default => throw new \Exception("Validation rule '{$rule}' does not exist."),
         };
     }
