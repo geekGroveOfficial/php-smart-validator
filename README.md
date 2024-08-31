@@ -1,3 +1,9 @@
+To incorporate the supported validation rules into your README for the `php-smart-validator` package, I suggest adding a dedicated section that clearly outlines all the available validation rules. This will help users understand the capabilities of your package right away.
+
+Here's an updated version of your README with the supported validation rules included:
+
+---
+
 # PHP Smart Validator
 
 `php-smart-validator` is a flexible and extensible PHP package for validating data. It provides a set of common validation rules and allows for custom rule definitions. This package is designed to be easy to use and integrate into any PHP project.
@@ -15,6 +21,28 @@ You can install the package via Composer. Run the following command in your term
 ```bash
 composer require GeekGroveOfficial/php-smart-validator
 ```
+
+## Supported Validation Rules
+
+The following validation rules are supported out of the box:
+
+- **required**: Ensures the field is present and not empty.
+- **min**: Ensures the field value is at least a certain length or size.
+- **max**: Ensures the field value does not exceed a certain length or size.
+- **string**: Ensures the field value is a string.
+- **integer** or **int**: Ensures the field value is an integer.
+- **boolean** or **bool**: Ensures the field value is a boolean.
+- **email**: Ensures the field value is a valid email address.
+- **date**: Ensures the field value is a valid date.
+- **array**: Ensures the field value is an array.
+- **in**: Ensures the field value is within a specified set of values.
+- **url**: Ensures the field value is a valid URL.
+- **ip**: Ensures the field value is a valid IP address.
+- **json**: Ensures the field value is a valid JSON string.
+- **regex**: Ensures the field value matches a specified regular expression pattern.
+- **uuid**: Ensures the field value is a valid UUID.
+- **image**: Ensures the field value is a valid image file.
+- **files**: Ensures the field value is valid files according to specified rules.
 
 ## Basic Usage
 
@@ -117,5 +145,3 @@ Contributions are welcome! If you have suggestions, improvements, or bug fixes, 
 Please ensure that your code adheres to the existing style and includes appropriate tests.
 
 ## License
-
-This package is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
