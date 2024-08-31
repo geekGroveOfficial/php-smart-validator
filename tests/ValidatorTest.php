@@ -91,4 +91,205 @@ class ValidatorTest extends TestCase
         $this->assertTrue($validator->validate());
         $this->assertEmpty($validator->errors());
     }
+
+    public function testValidationPassesBooleanWithValidData()
+    {
+        $data = [
+            'is_active' => true,
+        ];
+
+        $rules = [
+            'is_active' => ['boolean'], // you can use bool or boolean
+        ];
+
+        $validator = $this->getValidator($data, $rules);
+
+        $this->assertTrue($validator->validate());
+        $this->assertEmpty($validator->errors());
+    }
+
+    public function testValidationPassesEmailWithValidData()
+    {
+        $data = [
+            'email' => 'test@gmail.com'
+        ];
+
+        $rules = [
+            'email' => ['email'],
+        ];
+
+        $validator = $this->getValidator($data, $rules);
+
+        $this->assertTrue($validator->validate());
+        $this->assertEmpty($validator->errors());
+    }
+
+    public function testValidationPassesDateWithValidData()
+    {
+        $data = [
+            'date' => '2021-01-01'
+        ];
+
+        $rules = [
+            'date' => ['date:Y-m-d'],
+        ];
+
+        $validator = $this->getValidator($data, $rules);
+
+        $this->assertTrue($validator->validate());
+        $this->assertEmpty($validator->errors());
+    }
+
+    public function testValidationPassesArrayWithValidData()
+    {
+        $data = [
+            'items' => [1, 2, 3]
+        ];
+
+        $rules = [
+            'items' => ['array'],
+        ];
+
+        $validator = $this->getValidator($data, $rules);
+
+        $this->assertTrue($validator->validate());
+        $this->assertEmpty($validator->errors());
+    }
+
+
+    public function testValidationPassesInWithValidData()
+    {
+        $data = [
+            'status' => 'active'
+        ];
+
+        $rules = [
+            'status' => ['in:active,inactive'],
+        ];
+
+        $validator = $this->getValidator($data, $rules);
+
+        $this->assertTrue($validator->validate());
+        $this->assertEmpty($validator->errors());
+    }
+
+    public function testValidationPassesUrlWithValidData()
+    {
+        $data = [
+            'url' => 'https://www.google.com'
+        ];
+
+        $rules = [
+            'url' => ['url'],
+        ];
+
+        $validator = $this->getValidator($data, $rules);
+
+        $this->assertTrue($validator->validate());
+        $this->assertEmpty($validator->errors());
+    }
+
+    public function testValidationPassesIpWithValidData()
+    {
+        $data = [
+            'ip' => '127.0.0.1'
+        ];
+
+        $rules = [
+            'ip' => ['ip'],
+        ];
+
+        $validator = $this->getValidator($data, $rules);
+
+        $this->assertTrue($validator->validate());
+        $this->assertEmpty($validator->errors());
+    }
+
+    public function testValidationPassesJsonWithValidData()
+    {
+        $data = [
+            'json' => '{"name": "John Doe"}'
+        ];
+
+        $rules = [
+            'json' => ['json'],
+        ];
+
+        $validator = $this->getValidator($data, $rules);
+
+        $this->assertTrue($validator->validate());
+        $this->assertEmpty($validator->errors());
+    }
+
+    public function testValidationPassesRegexWithValidData()
+    {
+        $data = [
+            'name' => 'John Doe'
+        ];
+
+        $rules = [
+            'name' => ['regex:/^John/'],
+        ];
+
+        $validator = $this->getValidator($data, $rules);
+
+        $this->assertTrue($validator->validate());
+        $this->assertEmpty($validator->errors());
+    }
+
+    public function testValidationPassesUuidWithValidData()
+    {
+        $data = [
+            'uuid' => '550e8400-e29b-41d4-a716-446655440000'
+        ];
+
+        $rules = [
+            'uuid' => ['uuid'],
+        ];
+
+        $validator = $this->getValidator($data, $rules);
+
+        $this->assertTrue($validator->validate());
+        $this->assertEmpty($validator->errors());
+    }
+
+    public function testValidationPassesImageWithValidData()
+    {
+        $imagePath = __DIR__ . '/images/images.png';
+        $this->assertFileExists($imagePath, 'The image file does not exist for testing.');
+
+        $data = [
+            'image' => $imagePath
+        ];
+
+        $rules = [
+            'image' => ['image:jpg,png']
+        ];
+
+        $validator = $this->getValidator($data, $rules);
+
+        $this->assertTrue($validator->validate());
+
+        $this->assertEmpty($validator->errors());
+    }
+
+    public function testValidationPassesFilesWithValidData()
+    {
+        $imagePath = __DIR__ . '/images/images.png';
+        $this->assertFileExists($imagePath, 'The image file does not exist for testing.');
+
+        $data = [
+            'image' => $imagePath
+        ];
+
+        $rules = [
+            'image' => ['files:png,jpg']
+        ];
+
+        $validator = $this->getValidator($data, $rules);
+
+        $this->assertTrue($validator->validate());
+
+        $this->assertEmpty($validator->errors());
+    }
 }
