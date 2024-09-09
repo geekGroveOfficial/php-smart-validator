@@ -15,6 +15,6 @@ class ArrayRule implements ValidationRuleInterface
 
     public function getErrorMessage(string $field, mixed $parameter = null): string
     {
-        return str_replace(':min', $parameter, "{$field} must be type array.");
+        return "{$field} must be type array.";
     }
 }
