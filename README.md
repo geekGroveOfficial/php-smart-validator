@@ -72,52 +72,6 @@ if ($validator->validate()) {
 }
 ```
 
-### Adding Custom Rules
-
-To add custom validation rules, implement the `ValidationRuleInterface`:
-
-```php
-namespace App\Rules;
-
-use GeekGroveOfficial\PhpSmartValidator\Rules\ValidationRuleInterface;
-
-class CustomRule implements ValidationRuleInterface
-{
-    public function validate(string $field, mixed $value, mixed $parameter = null): bool
-    {
-        // Custom validation logic
-        return $value === 'expected_value';
-    }
-
-    public function getErrorMessage(string $field, mixed $parameter = null): string
-    {
-        return "{$field} does not meet custom rule requirements.";
-    }
-}
-```
-
-Register your custom rule with the `RuleFactory`:
-
-```php
-use GeekGroveOfficial\PhpSmartValidator\Rules\RuleFactory;
-use GeekGroveOfficial\PhpSmartValidator\Messages\FileMessageLoader;
-
-// Initialize the message loader
-$messageLoader = new FileMessageLoader(__DIR__ . '/resources/lang/en/messages.php');
-
-// Create the rule factory
-$ruleFactory = new RuleFactory($messageLoader);
-
-// Register your custom rule
-$customRule = $ruleFactory->create('custom_rule');
-
-// Use your custom rule in validation
-$data = ['custom_field' => 'value'];
-$rules = ['custom_field' => 'custom_rule'];
-
-$validator = new Validator($data, $rules);
-```
-
 ## Running Tests
 
 To ensure everything is working correctly, you can run the tests using PHPUnit. First, install PHPUnit if you haven't already:
