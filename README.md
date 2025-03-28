@@ -1,9 +1,3 @@
-To incorporate the supported validation rules into your README for the `php-smart-validator` package, I suggest adding a dedicated section that clearly outlines all the available validation rules. This will help users understand the capabilities of your package right away.
-
-Here's an updated version of your README with the supported validation rules included:
-
----
-
 # PHP Smart Validator
 
 `php-smart-validator` is a flexible and extensible PHP package for validating data. It provides a set of common validation rules and allows for custom rule definitions. This package is designed to be easy to use and integrate into any PHP project.
@@ -97,5 +91,3 @@ Contributions are welcome! If you have suggestions, improvements, or bug fixes, 
 5. Open a pull request.
 
 Please ensure that your code adheres to the existing style and includes appropriate tests.
-
-## License
